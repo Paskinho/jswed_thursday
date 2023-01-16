@@ -1,0 +1,18 @@
+// Task 01 +++
+// Дан объект someObj, реализуйте функцию greeting и присвойте ее ключу объекта с аналогичным именем.
+// Функция должна вернуть строку `My name is ${name}. I am ${age}`, где name и age берутся из свойств объекта
+
+type someObjType = {
+    name: string;
+    age: number;
+}
+
+let someObj:someObjType = {
+    name: 'Eugene',
+    age: 32
+}
+
+function greeting () {
+    console.log('My name is ' + someObj.name + ". I am " + someObj.age  )
+}
+
