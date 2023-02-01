@@ -17,17 +17,31 @@ return resolve
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 const promise2 = new Promise((resolve, reject)=> {
-     resolve("Promise Data")
+    resolve()
 })
+
+promise2
+    .then((message) => {
+        console.log('Promise Data')
+    })
 
 // Task 03
 // Создайте промис, который после создания сразу же переходит в состояние rejected
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
-
 const promise3 = new Promise((resolve, reject)=> {
-    reject("Promise Error")
+    reject()
 })
+
+promise3
+    .then((message) => {
+        console.log('Promise Data')
+    })
+
+    .catch((err) => {
+        // этот колбэк выполнится когда промис завершится ошибкой (promise будет в состоянии Rejected)
+        console.log('Promise Error ')
+    })
 
 
 
