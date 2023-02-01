@@ -25,6 +25,10 @@ const promise2 = new Promise((resolve, reject)=> {
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 
+const promise3 = new Promise((resolve, reject)=> {
+    reject("Promise Error")
+})
+
 
 
 // Task 04
