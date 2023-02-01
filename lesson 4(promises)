@@ -51,6 +51,18 @@ promise3
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
+const promise4 = new Promise((resolve, reject)=> {
+    resolve()
+})
+
+promise4
+    .then((message) => {
+        setTimeout((ms)=> {
+            console.log('Promise Data')
+        },3000)
+    })
+
+
 
 // Task 05
 // Создайте литерал объекта handlePromise со следующими свойствами:
