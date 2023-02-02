@@ -126,6 +126,33 @@ export const onRejectPromise = () => {
 // Добавьте два метода then и передайте созданные функции.
 
 
+const promise6 = new Promise((resolve, reject)=> {
+     resolve()
+})
+
+promise6.then(()=> {
+    setTimeout(()=> {
+        console.log("My name is")
+    }, 1000)
+})
+
+const onSuccess1 = (name: string)=> {
+    console.log(name + 'Uladzislau')
+}
+
+const print = (top: string) => {
+    console.log(top)
+}
+
+promise6.then(()=> {
+    return onSuccess1(" Paskanau")
+    }
+).then(()=>{
+    return print ('Virgil')
+    }
+)
+
+
 // Task 7
 // Создайте три промиса. Первый промис возвращает объект { name: "Anna" } через 2с,
 // второй промис возвращает объект {age: 16} через 3 с, а третий {city: ''} через 4с.
