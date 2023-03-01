@@ -81,9 +81,22 @@ function randomIntFromInterval(min, max) { // min and max included
   
  index.html
  
+ 1 задание
+ 
  <script>
+ // внутрь Promise передаем колбэк-функцию, которая собственно и есть та логика, которую промис обещает выполнить.
+    let myPromise = new Promise((resolve, reject) => {
+        console.log(1)
+        console.log(2)
+        console.log(3)
+        resolve()
+    });
 
 
+    // ниже по коду мы можем подписаться, на промис, чтобы он (промис) вызвал нашу функцию, когда он (промис) зарезолвится. Для этого передаём в метод then колбэк-функцию)
+    myPromise.then(( ) => {
+        console.log("myPromise resolved and i found out about it");
+    })
 </script>
   
   
