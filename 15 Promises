@@ -129,3 +129,95 @@ function randomIntFromInterval(min, max) { // min and max included
     })
 </script>
   
+  5 задание
+  
+  Чаще всего промис не создают как бы так просто, чтобы тут же на него подписываться. Чаще всего у нас есть какая-то функция, мы её вызываем, и она внутри себя создаёт новый промис и возвращает его нам (на подобие axios.get, axios.post и так далее)
+
+Давайте создадим функцию doAfter, которая:
+1. … принимает параметром кол-во секунд, сколько ждать
+2. … внутри себя будет создавать Promise, обещание которого - просто ждать переданное на этапе 1 кол-во секунд и резолвится через это время.
+3. ... возвращает созданный промис наружу.
+
+
+И когда у нас будет такая функция, мы сможем ей вот так вот пользовать (как заменой setTimeout):
+
+doAfter(5).then( () => console.log('я сработал через 5 секунд') );
+doAfter(3).then( () => console.log('а я сработал через 3 секунд') );
+doAfter(10).then( () => console.log('я сработал через 10 секунд') );
+
+
+
+<meta charset="UTF-8"/>
+<script>
+    // внутрь Promise передаем колбэк-функцию, которая собственно и есть та логика, которую промис обещает выполнить.
+    let myPromise = new Promise((resolve, reject) => {
+        setTimeout (()=>{
+            resolve(Math.random())
+        }, 2000)
+        console.log(1)
+        console.log(2)
+        console.log(3)
+
+    });
+
+    console.log(myPromise)
+
+    const doAfter = (sec)=> {
+        if (sec === 5) {
+        let myPromise = new Promise((resolve, reject) => {
+            setTimeout (()=>{
+                const randValue = Math.random()
+                resolve(randValue)
+            }, 5000)
+        });
+
+        return myPromise
+        }
+        else if (sec === 3) {
+            let myPromise = new Promise((resolve, reject) => {
+                setTimeout (()=>{
+                    const randValue = Math.random()
+                    resolve(randValue)
+                }, 3000)
+            });
+            return myPromise
+        }
+        else if (sec === 10) {
+            let myPromise = new Promise((resolve, reject) => {
+                setTimeout (()=>{
+                    const randValue = Math.random()
+                    resolve(randValue)
+                }, 10000)
+            });
+            return myPromise
+        }
+
+    }
+
+    // ниже по коду мы можем подписаться, на промис, чтобы он (промис) вызвал нашу функцию, когда он (промис) зарезолвится. Для этого передаём в метод then колбэк-функцию)
+    doAfter(5).then( () => console.log('я сработал через 5 секунд') );
+    doAfter(3).then( () => console.log('а я сработал через 3 секунд') );
+    doAfter(10).then( () => console.log('я сработал через 10 секунд') );
+
+</script>
+ 
+ КОРОТКАЯ ЗАПИСЬ 5 ЗАДАНИЯ 
+ 
+  const doAfter = (sec)=> {
+            let myPromise = new Promise((resolve, reject) => {
+                setTimeout (()=>{
+                    const randValue = Math.random()
+                    resolve(randValue)
+                }, sec*1000)
+            });
+            return myPromise
+
+
+    }
+
+    // ниже по коду мы можем подписаться, на промис, чтобы он (промис) вызвал нашу функцию, когда он (промис) зарезолвится. Для этого передаём в метод then колбэк-функцию)
+    doAfter(5).then( () => console.log('я сработал через 5 секунд') );
+    doAfter(3).then( () => console.log('а я сработал через 3 секунд') );
+    doAfter(10).then( () => console.log('я сработал через 10 секунд') );
+  
+ 
