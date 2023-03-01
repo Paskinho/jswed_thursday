@@ -220,4 +220,14 @@ doAfter(10).then( () => console.log('я сработал через 10 секу�
     doAfter(3).then( () => console.log('а я сработал через 3 секунд') );
     doAfter(10).then( () => console.log('я сработал через 10 секунд') );
   
+  
+  10 ЗАДАНИЕ
+  
+  let promise1 = doAfter(1)
+
+    let pr2= promise1.then((n)=>console.log(n))
+    let pr3 = pr2.then();
+    let pr4 = pr3.then(()=>console.log(3))
+    
+    console.log('finish', pr2,pr3,pr4)
  
