@@ -274,16 +274,33 @@ pr2 - промис, который во 2-ой строке кода пород�
     
     16 ЗАДАНИЕ
     
-    <meta charset="UTF-8"/>
+    
+    
+<meta charset="UTF-8"/>
 <script src="doAfter.js"></script>
 <script src="api.js"></script>
 <script src="axios.js"></script>
 <script>
     // внутрь Promise передаем колбэк-функцию, которая собственно и есть та логика, которую промис обещает выполнить.
+    //16
+
     api.sendStudentsCountToItKamasutra(20)
         .then(res => {
-            console.log(res);
+            console.log(res.data);
         });
+
+//17
+    
+    let pr1 = doAfter(4); // один промис
+    let pr2 = doAfter(7); // второй промис
+
+    pr1.then( () => console.log("pr1 resolved") ); // индивидуально подписываемся на каждый
+    pr2.then( () => console.log("pr2 resolved") );
+
+    let aggregatedPromise = Promise.all([pr1, pr2]); // получаем общий промис
+
+    aggregatedPromise.then( () => console.log("pr1 and pr2 resolved")); // сработает наш подписчик ТОЛЬКО когда все промисы, переданные в массиве в all будут resolved
+
 
 
 </script>
