@@ -305,3 +305,24 @@ pr2 - промис, который во 2-ой строке кода пород�
 
 </script>
  
+
+
+//19
+Нужно в камасутру отправить суммарное кол-во вакансий значение, которое получится в ответах от компании microsoft и google
+
+ let msPromise = api.getVacanciesCountFromMicrosoft();
+
+    let gPromise = api.getVacanciesCountFromGoogle();
+
+
+    const aggregatedPromise = Promise.all([msPromise, gPromise]);
+
+    aggregatedPromise.then((res)=> {
+     let resFromMS = res[0].data.vacancies
+     let resFromG = res[1].data.vacancies
+        api.sendStudentsCountToItKamasutra(resFromMS + resFromG)
+            .then(res => {
+                console.log(res.data);
+            });
+
+    })
