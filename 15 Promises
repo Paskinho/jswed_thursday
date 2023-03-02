@@ -254,3 +254,20 @@ pr2 - промис, который во 2-ой строке кода пород�
     
     console.log('finish', pr2,pr3,pr4)
  
+ ЦЕПОЧКА ПРОМИСОВ 
+ 
+ let pr1 = doAfter(1)
+
+    let pr2= pr1.then((n)=> {
+        console.log('pr1: ' + n)
+        return n*1000
+    })
+    let pr3= pr2.then((n)=> {
+        console.log('pr2: ' + n)
+        return n*1000
+    })
+    let pr4= pr3.then((n)=> {
+        console.log('pr3: ' + n)
+        return n*1000
+    })
+ 
