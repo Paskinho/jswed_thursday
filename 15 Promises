@@ -374,3 +374,22 @@ doAfter(1)
 
 </script>
     
+    ЗАМЫКАНИЕ
+    
+    
+    let msVacancies
+
+
+   api.getVacanciesCountFromGoogle()
+       .then(msCount => {
+           msVacancies = msCount
+           return api.getVacanciesCountFromMicrosoft()
+       })
+    .then(gCount => {
+        console.log(gCount)
+        return api.sendStudentsCountToItKamasutra(gCount + msVacancies)
+    })
+       .then(res => {
+           console.log('from-it-kamasutra' + res.data)
+       })
+    
