@@ -353,4 +353,24 @@ const api = {
             });
     }
 }
+
+
+ПРОВЕРКА ЦЕПОЧКИ ПРОМИСОВ
+
+doAfter(1)
+    .then(rand1 => {
+        console.log(rand1)
+        return rand1
+    })
+    .then(rand1 => {
+        console.log(rand1)
+        let pr2 = doAfter(5)
+        return pr2;
+    })
+    .then(rand2 => {
+        console.log(rand2)
+    })
+    .then(rand2 => console.log(rand2))
+
+</script>
     
