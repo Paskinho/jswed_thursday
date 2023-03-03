@@ -406,3 +406,14 @@ doAfter(1)
       loadVacanciesPromiseAsyncAwait()
     
     
+    ASYNC AWAIT WITH PROMISE.ALL
+    
+      async function loadVacanciesPromiseAsyncAwaitParallel() {
+        let msPr = api.getVacanciesCountFromMicrosoft();
+        let gPr = api.getVacanciesCountFromGoogle()
+        let msGResults = await  Promise.any([msPr, gPr])
+        let res = await api.sendStudentsCountToItKamasutra(msGResults[0] + msGResults[1])
+        console.log('from-it-kamasutra', res.data)
+    }
+    loadVacanciesPromiseAsyncAwaitParallel()
+    
