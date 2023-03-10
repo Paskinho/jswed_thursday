@@ -1,7 +1,9 @@
 class Car {
+    #weels // приватной свойство, нельзя поменять
     constructor(brand, maxSpeed) {
         this.brand = brand
         this.maxSpeed = maxSpeed
+        this.#weels = 4
     }
     showMaxSpeed() {
         console.log(`${this.brand} has max speed ${this.maxSpeed}`)
