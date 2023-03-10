@@ -417,3 +417,15 @@ doAfter(1)
     }
     loadVacanciesPromiseAsyncAwaitParallel()
     
+    
+    // отдельно прои this
+    
+    function CarCreator (brand) {
+  this.brand = brand    
+}
+
+const car1 = new CarCreator('bmw')
+const car2 = new CarCreator('opel')
+    
+    
+    
