@@ -1,1 +1,20 @@
+class Car {
+    constructor(brand, maxSpeed) {
+        this.brand = brand
+        this.maxSpeed = maxSpeed
+    }
+    showMaxSpeed() {
+        console.log(`${this.brand} has max speed ${this.maxSpeed}`)
+    }
+}
+
+const car1 = new Car('bmw', 200)
+const car2 = new Car('opel', 222)
+
+car1.showMaxSpeed()
+car2.showMaxSpeed()
+
+//Результат
+bmw has max speed 200
+opel has max speed 222
 
