@@ -1,5 +1,5 @@
 class Car {
-    #weels // приватной свойство, нельзя поменять
+    #weels // приватное свойство, нельзя поменять
     constructor(brand, maxSpeed) {
         this.brand = brand
         this.maxSpeed = maxSpeed
@@ -8,15 +8,23 @@ class Car {
     showMaxSpeed() {
         console.log(`${this.brand} has max speed ${this.maxSpeed}`)
     }
+    getWeelsCount() {
+        console.log(this.#weels)
+    }
+    setWeels(value) {
+        if (value === 3 || value === 4) {
+            this.#weels = value
+        }
+    throw Error ('wrong weels count')
+    }
 }
 
 const car1 = new Car('bmw', 200)
 const car2 = new Car('opel', 222)
 
+
+
 car1.showMaxSpeed()
 car2.showMaxSpeed()
 
-//Результат
-bmw has max speed 200
-opel has max speed 222
-
+car1.getWeelsCount();
