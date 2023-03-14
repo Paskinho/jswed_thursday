@@ -28,3 +28,23 @@ car1.showMaxSpeed()
 car2.showMaxSpeed()
 
 car1.getWeelsCount();
+
+
+//STATIC METOD
+
+class Car {
+    static weels = 4 // приватной свойство, нельзя поменять
+    constructor(brand, maxSpeed) {
+        this.brand = brand
+        this.maxSpeed = maxSpeed
+    }
+    static showWeels() {
+        console.log(`this car have ${this.weels} weels`)
+    }
+}
+
+Car.showWeels()
+
+// this car have 4 weels
+
+
