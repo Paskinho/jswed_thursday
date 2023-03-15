@@ -47,4 +47,17 @@ Car.showWeels()
 
 // this car have 4 weels
 
+Заимствование класса: 
+const Car1 = new Car('bmw', 200);
+
+class SuperCar extends  Car {
+    constructor(brand, maxSpeed) {
+        super(brand, maxSpeed);
+        this.weels = 6
+    }
+}
+
+const car2 = new SuperCar('ferrari', 300)
+
+console.dir(SuperCar)
 
