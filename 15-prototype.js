@@ -14,4 +14,4 @@ const user2 = new User ('dimych')
 
 
 console.log(user1.__proto__ === User.prototype) //true
-console.log(user1.__proto__ === User.prototype) //true
+console.log(user2.__proto__ === User.prototype) //true
