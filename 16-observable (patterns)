@@ -1,1 +1,9 @@
-
+const store = {
+    _subscribers: [],
+    dispatch() {
+        this._subscribers.forEach(s => s())
+    },
+    subscribe(subscriber) {
+        this._subscribers.push(subscriber)
+    }
+}
