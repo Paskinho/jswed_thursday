@@ -7,3 +7,24 @@ const store = {
         this._subscribers.push(subscriber)
     }
 }
+
+
+//button subscriber
+
+const button = {
+    _subscribers: {
+        'click': [],
+        'focus': []
+    },
+    click() {
+        this._subscribers['click'].forEach(sub => sub())
+    },
+    focus () {},
+addEventListener(evenName, subscriber) {
+        this._subscribers[evenName].push(subscriber)
+}
+}
+
+button.addEventListener('click', () => {
+    console.log('click')
+})
